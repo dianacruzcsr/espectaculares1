@@ -256,7 +256,7 @@ if st.button("🚀 **Iniciar Búsqueda**") and st.session_state.uploaded_df is n
                     "TARIFA_PUBLICO": f"${tarifa_val:,.2f}", "IMPRESION": row.get("IMPRESION"),
                     "INSTALACION": row.get("INSTALACION"), "COSTO": row.get("IMPRESION+INSTALACION"),
                     "MAPS_": f"http://maps.google.com/?q={st.session_state.negocio_lat},{st.session_state.negocio_lon}&z=15",
-                    "STREET_VIEW": f"http://maps.google.com/?q={lat_raw},{lon_raw}&z=15",
+                    "STREET_VIEW": f"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint={lat_raw},{lon_raw}&heading=0&pitch=0&fov=90",
                     "PROVEEDOR": row.get("PROVEEDOR"), "TELEFONO_PROVEEDOR": row.get("TELÉFONO PROVEEDOR"),
                 })
         except Exception as e:
@@ -354,4 +354,5 @@ if not st.session_state.df_filtrado.empty:
             except FileNotFoundError:
                 st.error("❌ **Error:** No se encontró el archivo de plantilla `plantilla2.pptx`. Asegúrate de que está en la misma carpeta que tu `app.py`.")
             except Exception as e:
+
                 st.error(f"❌ **Error al crear la presentación:** {e}")
